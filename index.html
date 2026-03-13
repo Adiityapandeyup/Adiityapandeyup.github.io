@@ -1,96 +1,131 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Kumar Pandey | Portfolio</title>
+    <title>Aditya Kumar Pandey | Cybersecurity Portfolio</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f0f2f5; color: #1a1a1a; }
-        header { background: linear-gradient(135deg, #2c3e50, #34495e); color: #fff; padding: 3rem 1rem; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .container { width: 85%; max-width: 900px; margin: auto; overflow: hidden; padding: 2rem 0; }
-        h2 { color: #2c3e50; border-bottom: 3px solid #3498db; display: inline-block; padding-bottom: 5px; margin-top: 2rem; }
-        .card { background: #fff; padding: 1.5rem; margin-bottom: 1.2rem; border-radius: 8px; border-left: 6px solid #3498db; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-        .cert-tag { display: inline-block; background: #e8f4fd; color: #2980b9; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-top: 5px; }
-        .social-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 1rem; }
-        .social-links a { text-decoration: none; color: #fff; background: #3498db; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .social-links a.li { background: #0077b5; }
-        .social-links a.x { background: #000000; }
-        .social-links a.ig { background: #e1306c; }
-        .social-links a:hover { opacity: 0.8; }
-        footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #7f8c8d; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --text: #333; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, var(--primary), #1a252f); color: white; text-align: center; padding: 4rem 1rem; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--secondary); margin-bottom: 1rem; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        
+        .container { width: 90%; max-width: 900px; margin: auto; padding: 2rem 0; }
+        h2 { color: var(--primary); border-bottom: 3px solid var(--secondary); display: inline-block; margin-bottom: 1.5rem; }
+        
+        .about-card { background: white; padding: 2rem; border-radius: 12px; shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        
+        /* Interactive Certificate Accordion */
+        .cert-card { background: white; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; }
+        .cert-header { padding: 1.2rem; background: white; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .cert-header:hover { background: #f1f7ff; }
+        .cert-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fafafa; padding: 0 1.2rem; }
+        .cert-card.active .cert-content { max-height: 500px; padding: 1.2rem; border-top: 1px solid #eee; }
+        
+        .date-tag { font-size: 0.85rem; color: #7f8c8d; }
+        .skill-pill { display: inline-block; background: #d6eaf8; color: #2980b9; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; margin: 4px 2px; font-weight: 600; }
+        
+        .social-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
+        .social-links a { text-decoration: none; color: white; padding: 12px 24px; border-radius: 30px; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
+        .li { background: #0077b5; } .x-twitter { background: #000; } .ig { background: #e1306c; } .gh { background: #333; }
+        .social-links a:hover { transform: scale(1.05); opacity: 0.9; }
+        
+        footer { text-align: center; padding: 3rem; color: #95a5a6; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Aditya Kumar Pandey</h1>
-        <p>BCA Student (Cybersecurity & Forensics) | Security Researcher</p>
-    </header>
+<header>
+    <img src="profile.jpg" alt="Aditya Kumar Pandey" class="profile-img" onerror="this.src='https://via.placeholder.com/150?text=Aditya'">
+    <h1>Aditya Kumar Pandey</h1>
+    <p>BCA (Cybersecurity & Forensics) | Security Researcher | Python Developer</p>
+</header>
 
-    <div class="container">
-        
-        <section>
-            <h2>About Me</h2>
-            <div class="card">
-                <p>Babu Banarasi Das University (BBDU) mein BCA Cybersecurity ka student hoon. Python tools banana, ethical hacking aur digital forensics meri main fields hain. Main security vulnerabilities dhundne aur unhe fix karne par kaam karta hoon.</p>
+<div class="container">
+    <section class="about-card">
+        <h2>About Me</h2>
+        <p>I am a dedicated BCA student specializing in Cybersecurity and Digital Forensics at Babu Banarasi Das University (BBDU). Passionate about identifying digital vulnerabilities and building robust security solutions, I focus on Python-based tool development, ethical hacking, and volatile memory analysis. My goal is to contribute to a safer digital ecosystem through continuous learning and practical application of security protocols.</p>
+    </section>
+
+    <section>
+        <h2>Certifications (March 2026)</h2>
+
+        <div class="cert-card" onclick="this.classList.toggle('active')">
+            <div class="cert-header">
+                <span>Blockchain 101 - Infosys Springboard</span>
+                <span class="date-tag">March 2026 ▼</span>
             </div>
-        </section>
-
-        <section>
-            <h2>Professional Certifications</h2>
-            
-            <div class="card">
-                <strong>Blockchain 101</strong><br>
-                <span class="cert-tag">Infosys Springboard</span>
+            <div class="cert-content">
+                <p>Explored decentralized ledgers, cryptography (hashing/signatures), and the foundational security of smart contracts.</p>
+                <strong>Skills:</strong><br>
+                <span class="skill-pill">Blockchain Architecture</span> <span class="skill-pill">Cryptography</span> <span class="skill-pill">Data Integrity</span>
             </div>
+        </div>
 
-            <div class="card">
-                <strong>Cybersecurity with Generative AI</strong><br>
-                <span class="cert-tag">IBM</span>
+        <div class="cert-card" onclick="this.classList.toggle('active')">
+            <div class="cert-header">
+                <span>Cybersecurity with Generative AI - IBM</span>
+                <span class="date-tag">March 2026 ▼</span>
             </div>
-
-            <div class="card">
-                <strong>Endpoint Security</strong><br>
-                <span class="cert-tag">Cisco Networking Academy</span>
+            <div class="cert-content">
+                <p>Learned how to leverage AI to identify threats, automate incident response, and enhance defensive security measures.</p>
+                <strong>Skills:</strong><br>
+                <span class="skill-pill">AI Security</span> <span class="skill-pill">Threat Detection</span> <span class="skill-pill">Automated Response</span>
             </div>
+        </div>
 
-            <div class="card">
-                <strong>Networking Basics</strong><br>
-                <span class="cert-tag">Cisco Networking Academy</span>
+        <div class="cert-card" onclick="this.classList.toggle('active')">
+            <div class="cert-header">
+                <span>Endpoint Security - Cisco</span>
+                <span class="date-tag">March 2026 ▼</span>
             </div>
-
-            <div class="card">
-                <strong>Introduction to Cybersecurity</strong><br>
-                <span class="cert-tag">Cisco Networking Academy</span>
+            <div class="cert-content">
+                <p>Focused on protecting network endpoints, understanding malware behavior, and implementing host-based security controls.</p>
+                <strong>Skills:</strong><br>
+                <span class="skill-pill">Antivirus Systems</span> <span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Security</span>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Projects</h2>
-            <div class="card">
-                <strong>Intruder Alert System</strong> - Node.js aur Python based monitoring system.
+        <div class="cert-card" onclick="this.classList.toggle('active')">
+            <div class="cert-header">
+                <span>Networking Basics - Cisco</span>
+                <span class="date-tag">March 2026 ▼</span>
             </div>
-            <div class="card">
-                <strong>RAM Forensics Tool</strong> - Volatile memory analysis ke liye custom script.
+            <div class="cert-content">
+                <p>Comprehensive study of OSI models, TCP/IP protocols, and how secure data transmission works across networks.</p>
+                <strong>Skills:</strong><br>
+                <span class="skill-pill">TCP/IP</span> <span class="skill-pill">Routing & Switching</span> <span class="skill-pill">Network Protocols</span>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Let's Connect</h2>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/aditya-kumar-pandey" class="li">LinkedIn</a>
-                <a href="https://x.com/adiityapandeyy" class="x">X (Twitter)</a>
-                <a href="https://instagram.com/adiityaes" class="ig">Instagram</a>
-                <a href="https://github.com/Adiityapandeyup" style="background:#333;">GitHub</a>
+        <div class="cert-card" onclick="this.classList.toggle('active')">
+            <div class="cert-header">
+                <span>Introduction to Cybersecurity - Cisco</span>
+                <span class="date-tag">March 2026 ▼</span>
             </div>
-        </section>
+            <div class="cert-content">
+                <p>Foundational knowledge of cyber threats, risk management, and best practices for protecting digital assets.</p>
+                <strong>Skills:</strong><br>
+                <span class="skill-pill">Information Security</span> <span class="skill-pill">Risk Assessment</span> <span class="skill-pill">Cyber Awareness</span>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <section>
+        <h2>Professional Links</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/aditya-kumar-pandey-ap" class="li">LinkedIn</a>
+            <a href="https://x.com/adiityapandeyy" class="x-twitter">X (Twitter)</a>
+            <a href="https://instagram.com/adiityaes" class="ig">Instagram</a>
+            <a href="https://github.com/Adiityapandeyup" class="gh">GitHub</a>
+        </div>
+    </section>
+</div>
 
-    <footer>
-        <p>&copy; 2026 Aditya Kumar Pandey | Secured with 💻</p>
-    </footer>
+<footer>
+    <p>&copy; 2026 Aditya Kumar Pandey | Managed via GitHub Pages</p>
+</footer>
 
 </body>
 </html>
