@@ -12,82 +12,55 @@
             position: relative;
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
                         url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-            padding: 5rem 1rem;
-            text-align: center;
-            border-bottom: 2px solid var(--secondary);
+            background-size: cover; background-position: center; padding: 5rem 1rem; text-align: center; border-bottom: 2px solid var(--secondary);
         }
 
         .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--secondary); margin-bottom: 1rem; object-fit: cover; box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); }
-        
         .container { width: 90%; max-width: 950px; margin: auto; padding: 2rem 0; }
         h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 3.5rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
 
-        /* Projects Style */
-        .project-card { background: #1e293b; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border-left: 5px solid var(--accent); transition: 0.3s; }
+        /* Projects & Feedback Style */
+        .project-card, .feedback-container { background: #1e293b; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border-left: 5px solid var(--accent); transition: 0.3s; }
         .project-card:hover { transform: translateX(5px); }
 
-        /* UNIQUE CLICKABLE CERTIFICATION STYLE */
-        .cert-item { 
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            transition: 0.3s;
-            cursor: pointer;
-        }
+        /* Certification Style */
+        .cert-item { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; margin-bottom: 1rem; overflow: hidden; transition: 0.3s; cursor: pointer; }
         .cert-item:hover { border-color: var(--secondary); background: rgba(56, 189, 248, 0.05); }
-        
         .cert-header { display: flex; align-items: center; padding: 1.2rem; position: relative; }
-        
-        .company-logo { 
-            width: 50px; height: 50px; 
-            background: #fff; 
-            border-radius: 8px; 
-            margin-right: 1.2rem; 
-            display: flex; align-items: center; justify-content: center;
-            padding: 5px; flex-shrink: 0;
-        }
+        .company-logo { width: 50px; height: 50px; background: #fff; border-radius: 8px; margin-right: 1.2rem; display: flex; align-items: center; justify-content: center; padding: 5px; flex-shrink: 0; }
         .company-logo img { max-width: 90%; max-height: 90%; object-fit: contain; }
-
         .cert-info h3 { margin: 0; font-size: 1.1rem; color: #fff; }
-        .cert-info p { margin: 2px 0; font-size: 0.85rem; color: #94a3b8; }
-        
         .cert-date { position: absolute; top: 15px; right: 20px; font-size: 0.75rem; color: var(--secondary); font-weight: bold; }
-
-        /* Dropdown Content */
         .cert-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
         .cert-item.active .cert-details { max-height: 250px; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
 
-        .skill-pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--secondary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin: 5px 3px; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: 600; }
+        /* Form Styling */
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: #0f172a; color: white; font-family: inherit; box-sizing: border-box; }
+        button { background: var(--secondary); color: #000; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        button:hover { background: #7dd3fc; transform: scale(1.02); }
 
-        /* Social Links */
+        .skill-pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--secondary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin: 5px 3px; border: 1px solid rgba(56, 189, 248, 0.3); }
         .social-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 1rem; }
-        .social-links a { text-decoration: none; color: white; padding: 12px 25px; border-radius: 10px; font-weight: bold; background: #1e293b; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
-        .social-links a:hover { background: var(--secondary); color: #000; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
-
+        .social-links a { text-decoration: none; color: white; padding: 10px 20px; border-radius: 8px; background: #1e293b; font-weight: bold; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .social-links a:hover { background: var(--secondary); color: #000; }
         .arrow { transition: transform 0.3s; margin-left: auto; color: var(--secondary); }
         .cert-item.active .arrow { transform: rotate(180deg); }
-
     </style>
 </head>
 <body>
 
 <header>
     <img src="profile.jpg" alt="Aditya Kumar Pandey" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Aditya+Pandey&background=0ea5e9&color=fff&size=150'">
-    <h1 style="margin:0; font-size: 2.8rem; letter-spacing: 1px;">Aditya Kumar Pandey</h1>
-    <p style="color: var(--secondary); font-weight: 600; font-size: 1.1rem; margin-top: 10px;">BCA Cybersecurity @ BBDU | OSINT & Automation Expert</p>
+    <h1 style="margin:0; font-size: 2.5rem;">Aditya Kumar Pandey</h1>
+    <p style="color: var(--secondary); font-weight: 600; font-size: 1.1rem;">BCA Cybersecurity @ BBDU | OSINT & Automation Expert</p>
 </header>
 
 <div class="container">
     
     <section>
         <h2>About Me</h2>
-        <div style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
-            <p style="margin:0; font-size: 1.05rem; color: #cbd5e1;">I am a Cybersecurity and Digital Forensics student with a deep interest in OSINT, automated data extraction, and ethical hacking. I focus on developing Python tools that streamline security investigations and data verification processes.</p>
+        <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+            <p style="margin:0; font-size: 1.05rem; color: #cbd5e1;">I am a Cybersecurity and Digital Forensics student specialized in building Python-based OSINT tools and automated data extraction systems. My goal is to streamline digital investigations through smart automation.</p>
         </div>
     </section>
 
@@ -95,130 +68,61 @@
         <h2>Technical Projects</h2>
         <div class="project-card">
             <h3 style="margin:0;">num-info-tool <span style="float:right; color: var(--accent); font-size: 0.85rem;">2 Mar 2026</span></h3>
-            <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 8px;">A sophisticated OSINT tool designed for phone number intelligence, carrier tracking, and digital footprint analysis.</p>
+            <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 8px;">Advanced OSINT tool for phone number intelligence and digital footprint analysis.</p>
         </div>
         <div class="project-card">
             <h3 style="margin:0;">aadhar-data-extractor <span style="float:right; color: var(--accent); font-size: 0.85rem;">6 Mar 2026</span></h3>
-            <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 8px;">Automation-driven Aadhar data parser using OCR technology for high-accuracy verification and structured output.</p>
+            <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 8px;">OCR-driven automation for secure digital Aadhar data parsing and verification.</p>
         </div>
     </section>
 
     <section>
-        <h2>Certifications (March 2026)</h2>
+        <h2>Certifications</h2>
         <div class="cert-list">
+            <div class="cert-item" onclick="this.classList.toggle('active')">
+                <div class="cert-header">
+                    <span class="cert-date">MAR 2026</span>
+                    <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
+                    <div class="cert-info"><h3>Endpoint Security</h3><p>Cisco Networking Academy</p></div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="cert-details"><p>Protecting endpoints from malware and unauthorized access.</p><span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Protection</span></div>
+            </div>
             
-            <div class="cert-item" onclick="this.classList.toggle('active')">
-                <div class="cert-header">
-                    <span class="cert-date">MAR 2026</span>
-                    <div class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg" alt="Infosys">
-                    </div>
-                    <div class="cert-info">
-                        <h3>Blockchain 101</h3>
-                        <p>Infosys Springboard</p>
-                    </div>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="cert-details">
-                    <p style="margin-bottom: 10px; color: #cbd5e1;">Comprehensive study of decentralized architectures and secure smart contract deployments.</p>
-                    <strong>Skills:</strong><br>
-                    <span class="skill-pill">Cryptography</span> <span class="skill-pill">Distributed Ledgers</span> <span class="skill-pill">Web3 Security</span>
-                </div>
             </div>
+    </section>
 
-            <div class="cert-item" onclick="this.classList.toggle('active')">
-                <div class="cert-header">
-                    <span class="cert-date">MAR 2026</span>
-                    <div class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
-                    </div>
-                    <div class="cert-info">
-                        <h3>Cybersecurity with Gen AI</h3>
-                        <p>IBM Training</p>
-                    </div>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="cert-details">
-                    <p style="margin-bottom: 10px; color: #cbd5e1;">Learned to implement Generative AI for advanced threat detection and defensive automation.</p>
-                    <strong>Skills:</strong><br>
-                    <span class="skill-pill">AI Security</span> <span class="skill-pill">Defensive AI</span> <span class="skill-pill">Threat Hunting</span>
-                </div>
+    <section>
+        <h2>Feedback & Live Chat</h2>
+        <div class="feedback-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; border-left: 5px solid var(--secondary);">
+            <div>
+                <h4 style="margin-top:0; color:var(--secondary)">Send a Feedback</h4>
+                <form action="https://formspree.io/f/YOUR_ID" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <textarea name="message" placeholder="Your Message" rows="3" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
-
-            <div class="cert-item" onclick="this.classList.toggle('active')">
-                <div class="cert-header">
-                    <span class="cert-date">MAR 2026</span>
-                    <div class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco">
-                    </div>
-                    <div class="cert-info">
-                        <h3>Endpoint Security</h3>
-                        <p>Cisco Networking Academy</p>
-                    </div>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="cert-details">
-                    <p style="margin-bottom: 10px; color: #cbd5e1;">Focused on host-based security, malware analysis, and antivirus management protocols.</p>
-                    <strong>Skills:</strong><br>
-                    <span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Protection</span> <span class="skill-pill">Firewall</span>
-                </div>
+            <div style="text-align: center; padding: 10px;">
+                <h4 style="margin-top:0; color:var(--accent)">Direct Chat</h4>
+                <p style="font-size:0.85rem; color:#94a3b8">Available on Telegram for instant response.</p>
+                <a href="https://t.me/YOUR_USERNAME" target="_blank" style="display:inline-block; background:#0088cc; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">Message on Telegram</a>
             </div>
-
-            <div class="cert-item" onclick="this.classList.toggle('active')">
-                <div class="cert-header">
-                    <span class="cert-date">MAR 2026</span>
-                    <div class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco">
-                    </div>
-                    <div class="cert-info">
-                        <h3>Networking Basics</h3>
-                        <p>Cisco Networking Academy</p>
-                    </div>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="cert-details">
-                    <p style="margin-bottom: 10px; color: #cbd5e1;">Deep dive into the OSI model, TCP/IP protocols, and network troubleshooting techniques.</p>
-                    <strong>Skills:</strong><br>
-                    <span class="skill-pill">TCP/IP</span> <span class="skill-pill">Switching</span> <span class="skill-pill">IP Addressing</span>
-                </div>
-            </div>
-
-            <div class="cert-item" onclick="this.classList.toggle('active')">
-                <div class="cert-header">
-                    <span class="cert-date">MAR 2026</span>
-                    <div class="company-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco">
-                    </div>
-                    <div class="cert-info">
-                        <h3>Introduction to Cybersecurity</h3>
-                        <p>Cisco Networking Academy</p>
-                    </div>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="cert-details">
-                    <p style="margin-bottom: 10px; color: #cbd5e1;">Gained insights into ethical hacking, data privacy, and global cyber threat landscapes.</p>
-                    <strong>Skills:</strong><br>
-                    <span class="skill-pill">Cyber Ethics</span> <span class="skill-pill">Risk Management</span> <span class="skill-pill">InfoSec</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section style="margin-top: 4rem;">
-        <h2 style="text-align: center;">Digital Footprints</h2>
+    <section style="text-align: center; margin-top: 3rem;">
         <div class="social-links">
             <a href="https://www.linkedin.com/in/aditya-kumar-pandey-ap">LinkedIn</a>
             <a href="https://x.com/adiityapandeyy">X (Twitter)</a>
             <a href="https://instagram.com/adiityaes">Instagram</a>
-            <a href="https://github.com/Adiityapndeyup">GitHub</a>
+            <a href="https://github.com/Adiityapandeyup">GitHub</a>
         </div>
     </section>
-
 </div>
 
-<footer style="text-align: center; padding: 4rem 1rem; color: #475569; border-top: 1px solid #1e293b;">
-    <p>&copy; 2026 Aditya Kumar Pandey | Cybersecurity & Forensics @ BBDU</p>
+<footer style="text-align: center; padding: 3rem; color: #475569; font-size: 0.8rem;">
+    <p>&copy; 2026 Aditya Kumar Pandey | Secured with 💻</p>
 </footer>
 
 </body>
