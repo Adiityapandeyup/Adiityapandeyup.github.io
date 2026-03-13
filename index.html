@@ -5,29 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Kumar Pandey | Cybersecurity Portfolio</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f8f9fa; --text: #333; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e67e22; --bg: #f8f9fa; --text: #333; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
         
         header { background: linear-gradient(135deg, var(--primary), #1a252f); color: white; text-align: center; padding: 4rem 1rem; }
         .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--secondary); margin-bottom: 1rem; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         
         .container { width: 90%; max-width: 900px; margin: auto; padding: 2rem 0; }
-        h2 { color: var(--primary); border-bottom: 3px solid var(--secondary); display: inline-block; margin-bottom: 1.5rem; }
+        h2 { color: var(--primary); border-bottom: 3px solid var(--secondary); display: inline-block; margin-bottom: 1.5rem; margin-top: 2.5rem; }
         
-        .about-card { background: white; padding: 2rem; border-radius: 12px; shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        .about-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
         
-        /* Interactive Certificate Accordion */
-        .cert-card { background: white; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; }
-        .cert-header { padding: 1.2rem; background: white; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
-        .cert-header:hover { background: #f1f7ff; }
-        .cert-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fafafa; padding: 0 1.2rem; }
-        .cert-card.active .cert-content { max-height: 500px; padding: 1.2rem; border-top: 1px solid #eee; }
+        /* Interactive Card Accordion */
+        .interactive-card { background: white; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; }
+        .card-header { padding: 1.2rem; background: white; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .card-header:hover { background: #f1f7ff; }
+        .card-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fafafa; padding: 0 1.2rem; }
+        .interactive-card.active { border-left: 5px solid var(--secondary); }
+        .interactive-card.active .card-content { max-height: 800px; padding: 1.2rem; border-top: 1px solid #eee; }
+        .project-card.active { border-left: 5px solid var(--accent); }
         
         .date-tag { font-size: 0.85rem; color: #7f8c8d; }
         .skill-pill { display: inline-block; background: #d6eaf8; color: #2980b9; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; margin: 4px 2px; font-weight: 600; }
+        .tech-pill { display: inline-block; background: #fdebd0; color: #d35400; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; margin: 4px 2px; font-weight: 600; }
         
         .social-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
-        .social-links a { text-decoration: none; color: white; padding: 12px 24px; border-radius: 30px; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
+        .social-links a { text-decoration: none; color: white; padding: 12px 24px; border-radius: 30px; font-weight: bold; transition: 0.3s; font-size: 0.9rem; text-align: center; flex-grow: 1; }
         .li { background: #0077b5; } .x-twitter { background: #000; } .ig { background: #e1306c; } .gh { background: #333; }
         .social-links a:hover { transform: scale(1.05); opacity: 0.9; }
         
@@ -45,75 +48,105 @@
 <div class="container">
     <section class="about-card">
         <h2>About Me</h2>
-        <p>I am a dedicated BCA student specializing in Cybersecurity and Digital Forensics at Babu Banarasi Das University (BBDU). Passionate about identifying digital vulnerabilities and building robust security solutions, I focus on Python-based tool development, ethical hacking, and volatile memory analysis. My goal is to contribute to a safer digital ecosystem through continuous learning and practical application of security protocols.</p>
+        <p>I am a dedicated BCA student specializing in Cybersecurity and Digital Forensics at Babu Banarasi Das University (BBDU). Passionate about identifying digital vulnerabilities and building robust security solutions, I focus on OSINT tool development, automated data extraction, and ethical hacking. My goal is to bridge the gap between complex security protocols and practical automation through Python-based innovation.</p>
+    </section>
+
+    <section>
+        <h2>Technical Projects</h2>
+
+        <div class="interactive-card project-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
+                <span>num-info-tool</span>
+                <span class="date-tag">View Project ▼</span>
+            </div>
+            <div class="card-content">
+                <p><strong>Developed on:</strong> 2 March 2026</p>
+                <p>An advanced Open Source Intelligence (OSINT) tool designed for phone number information gathering. This tool automates the process of fetching carrier details, location data, and active service status. It is built to assist in digital investigations and verifying information during security audits.</p>
+                <strong>Tech Stack:</strong><br>
+                <span class="tech-pill">Python</span> <span class="tech-pill">OSINT Framework</span> <span class="tech-pill">API Integration</span> <span class="tech-pill">Data Parsing</span>
+            </div>
+        </div>
+
+        <div class="interactive-card project-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
+                <span>aadhar-data-extractor</span>
+                <span class="date-tag">View Project ▼</span>
+            </div>
+            <div class="card-content">
+                <p><strong>Developed on:</strong> 6 March 2026</p>
+                <p>A specialized automation script developed to extract and organize data from Aadhar-related digital formats. The project focuses on utilizing OCR (Optical Character Recognition) and pattern matching to streamline the data verification process while ensuring localized data handling and structure.</p>
+                <strong>Tech Stack:</strong><br>
+                <span class="tech-pill">Python</span> <span class="tech-pill">OCR Technology</span> <span class="tech-pill">Regular Expressions (RegEx)</span> <span class="tech-pill">Automation</span>
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Certifications (March 2026)</h2>
 
-        <div class="cert-card" onclick="this.classList.toggle('active')">
-            <div class="cert-header">
+        <div class="interactive-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
                 <span>Blockchain 101 - Infosys Springboard</span>
-                <span class="date-tag">March 2026 ▼</span>
+                <span class="date-tag">Verified ▼</span>
             </div>
             <div class="cert-content">
-                <p>Explored decentralized ledgers, cryptography (hashing/signatures), and the foundational security of smart contracts.</p>
-                <strong>Skills:</strong><br>
-                <span class="skill-pill">Blockchain Architecture</span> <span class="skill-pill">Cryptography</span> <span class="skill-pill">Data Integrity</span>
+                <p>In-depth study of decentralized ledgers, cryptographic hashing, and smart contract security fundamentals.</p>
+                <strong>Skills Learned:</strong><br>
+                <span class="skill-pill">Blockchain Architecture</span> <span class="skill-pill">Cryptography</span> <span class="skill-pill">Web3 Security</span>
             </div>
         </div>
 
-        <div class="cert-card" onclick="this.classList.toggle('active')">
-            <div class="cert-header">
+        <div class="interactive-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
                 <span>Cybersecurity with Generative AI - IBM</span>
-                <span class="date-tag">March 2026 ▼</span>
+                <span class="date-tag">Verified ▼</span>
             </div>
             <div class="cert-content">
-                <p>Learned how to leverage AI to identify threats, automate incident response, and enhance defensive security measures.</p>
-                <strong>Skills:</strong><br>
-                <span class="skill-pill">AI Security</span> <span class="skill-pill">Threat Detection</span> <span class="skill-pill">Automated Response</span>
+                <p>Understanding how Generative AI can be used for automated threat hunting and defensive AI strategies.</p>
+                <strong>Skills Learned:</strong><br>
+                <span class="skill-pill">Gen AI</span> <span class="skill-pill">Threat Detection</span> <span class="skill-pill">IBM Security</span>
             </div>
         </div>
 
-        <div class="cert-card" onclick="this.classList.toggle('active')">
-            <div class="cert-header">
+        <div class="interactive-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
                 <span>Endpoint Security - Cisco</span>
-                <span class="date-tag">March 2026 ▼</span>
+                <span class="date-tag">Verified ▼</span>
             </div>
             <div class="cert-content">
-                <p>Focused on protecting network endpoints, understanding malware behavior, and implementing host-based security controls.</p>
-                <strong>Skills:</strong><br>
-                <span class="skill-pill">Antivirus Systems</span> <span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Security</span>
+                <p>Mastered endpoint protection strategies, including firewall management, malware detection, and host security.</p>
+                <strong>Skills Learned:</strong><br>
+                <span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Protection</span> <span class="skill-pill">Endpoint Defense</span>
             </div>
         </div>
 
-        <div class="cert-card" onclick="this.classList.toggle('active')">
-            <div class="cert-header">
+        <div class="interactive-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
                 <span>Networking Basics - Cisco</span>
-                <span class="date-tag">March 2026 ▼</span>
+                <span class="date-tag">Verified ▼</span>
             </div>
             <div class="cert-content">
-                <p>Comprehensive study of OSI models, TCP/IP protocols, and how secure data transmission works across networks.</p>
-                <strong>Skills:</strong><br>
-                <span class="skill-pill">TCP/IP</span> <span class="skill-pill">Routing & Switching</span> <span class="skill-pill">Network Protocols</span>
+                <p>Foundation of network infrastructure, OSI models, TCP/IP configurations, and basic network troubleshooting.</p>
+                <strong>Skills Learned:</strong><br>
+                <span class="skill-pill">Networking</span> <span class="skill-pill">OSI Model</span> <span class="skill-pill">TCP/IP</span>
             </div>
         </div>
 
-        <div class="cert-card" onclick="this.classList.toggle('active')">
-            <div class="cert-header">
+        <div class="interactive-card" onclick="this.classList.toggle('active')">
+            <div class="card-header">
                 <span>Introduction to Cybersecurity - Cisco</span>
-                <span class="date-tag">March 2026 ▼</span>
+                <span class="date-tag">Verified ▼</span>
             </div>
             <div class="cert-content">
-                <p>Foundational knowledge of cyber threats, risk management, and best practices for protecting digital assets.</p>
-                <strong>Skills:</strong><br>
-                <span class="skill-pill">Information Security</span> <span class="skill-pill">Risk Assessment</span> <span class="skill-pill">Cyber Awareness</span>
+                <p>Broad overview of the cybersecurity landscape, covering ethical hacking, risk management, and data privacy.</p>
+                <strong>Skills Learned:</strong><br>
+                <span class="skill-pill">Infosec</span> <span class="skill-pill">Ethics</span> <span class="skill-pill">Digital Safety</span>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Professional Links</h2>
+        <h2>Connect With Me</h2>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/aditya-kumar-pandey-ap" class="li">LinkedIn</a>
             <a href="https://x.com/adiityapandeyy" class="x-twitter">X (Twitter)</a>
@@ -124,7 +157,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2026 Aditya Kumar Pandey | Managed via GitHub Pages</p>
+    <p>&copy; 2026 Aditya Kumar Pandey | Cybersecurity & Forensics @ BBDU</p>
 </footer>
 
 </body>
