@@ -67,6 +67,10 @@
 
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: #1e293b; color: white; box-sizing: border-box; font-family: inherit; }
+        button { background: var(--secondary); color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; width: 100%; }
+        button:hover:not(:disabled) { background: #7dd3fc; transform: scale(1.02); }
+        button:disabled { background: #475569; cursor: not-allowed; }
+
         .social-links a { text-decoration: none; color: var(--text); padding: 12px 18px; border-radius: 8px; background: var(--card); margin: 5px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); font-weight: 600; }
         .social-links a:hover { background: var(--secondary); color: #000; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); }
     </style>
@@ -118,8 +122,8 @@
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cert-details">
-                    <p>Studied the foundational principles of blockchain technology, including decentralized ledgers, cryptographic hashing, and smart contract security protocols for Web3 environments.</p>
-                    <strong>Core Skills:</strong><br>
+                    <p>Studied decentralized ledgers, cryptographic hashing, and smart contract security protocols.</p>
+                    <strong>Skills:</strong><br>
                     <span class="skill-pill">Cryptography</span> <span class="skill-pill">Web3 Security</span> <span class="skill-pill">Data Integrity</span>
                 </div>
             </div>
@@ -132,9 +136,9 @@
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cert-details">
-                    <p>Explored how Generative AI can be used to identify zero-day vulnerabilities, automate threat intelligence gathering, and enhance incident response through AI-driven defense mechanisms.</p>
-                    <strong>Core Skills:</strong><br>
-                    <span class="skill-pill">AI Defense</span> <span class="skill-pill">Threat Detection</span> <span class="skill-pill">IBM Security Tools</span>
+                    <p>Learned threat intelligence and defensive AI automation mechanisms.</p>
+                    <strong>Skills:</strong><br>
+                    <span class="skill-pill">AI Defense</span> <span class="skill-pill">Threat Detection</span> <span class="skill-pill">AI Automation</span>
                 </div>
             </div>
 
@@ -142,12 +146,12 @@
                 <div class="cert-header">
                     <span class="cert-date">MAR 2026</span>
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
-                    <div class="cert-info"><h3>Endpoint Security</h3><p>Cisco Networking Academy</p></div>
+                    <div class="cert-info"><h3>Endpoint Security</h3><p>Cisco Academy</p></div>
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cert-details">
-                    <p>Focused on host-based security measures, malware analysis, and antivirus management. Learned to protect network endpoints from unauthorized access and persistent threats.</p>
-                    <strong>Core Skills:</strong><br>
+                    <p>Focused on host protection, malware analysis, and antivirus management.</p>
+                    <strong>Skills:</strong><br>
                     <span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Protection</span> <span class="skill-pill">EDR Principles</span>
                 </div>
             </div>
@@ -156,13 +160,13 @@
                 <div class="cert-header">
                     <span class="cert-date">MAR 2026</span>
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
-                    <div class="cert-info"><h3>Networking Basics</h3><p>Cisco Networking Academy</p></div>
+                    <div class="cert-info"><h3>Networking Basics</h3><p>Cisco Academy</p></div>
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cert-details">
-                    <p>Gained a deep understanding of the OSI model, TCP/IP configurations, and network infrastructure. Learned to secure routing and switching protocols for enterprise-level communication.</p>
-                    <strong>Core Skills:</strong><br>
-                    <span class="skill-pill">TCP/IP Protocols</span> <span class="skill-pill">Network Security</span> <span class="skill-pill">Switching & Routing</span>
+                    <p>Study of OSI model, TCP/IP configurations, and network infrastructure.</p>
+                    <strong>Skills:</strong><br>
+                    <span class="skill-pill">TCP/IP Protocols</span> <span class="skill-pill">Switching & Routing</span> <span class="skill-pill">Networking</span>
                 </div>
             </div>
 
@@ -170,12 +174,12 @@
                 <div class="cert-header">
                     <span class="cert-date">MAR 2026</span>
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
-                    <div class="cert-info"><h3>Introduction to Cybersecurity</h3><p>Cisco Networking Academy</p></div>
+                    <div class="cert-info"><h3>Introduction to Cybersecurity</h3><p>Cisco Academy</p></div>
                     <span class="arrow">▼</span>
                 </div>
                 <div class="cert-details">
-                    <p>Comprehensive overview of the global threat landscape, ethical hacking ethics, and data privacy laws. Studied risk management and the CIA Triad for information security.</p>
-                    <strong>Core Skills:</strong><br>
+                    <p>Overview of threat landscape, ethical hacking, and data privacy laws.</p>
+                    <strong>Skills:</strong><br>
                     <span class="skill-pill">Ethical Hacking</span> <span class="skill-pill">Data Privacy</span> <span class="skill-pill">Risk Management</span>
                 </div>
             </div>
@@ -187,13 +191,19 @@
         <h2>Secure Feedback & Direct Chat</h2>
         <div class="contact-grid">
             <div class="project-card" style="margin-bottom:0; cursor:default;">
-                <h4 style="margin-top:0;"><i class="fa-solid fa-paper-plane"></i> Transmit Feedback</h4>
-                <form action="https://formspree.io/f/mbdzkkpp" method="POST">
+                <h4 style="margin-top:0;"><i class="fa-solid fa-paper-plane"></i> Send Feedback</h4>
+                
+                <form id="contactForm" action="https://formspree.io/f/mbdzkkpp" method="POST">
                     <input type="text" name="name" placeholder="Agent Name" required>
+                    <input type="email" id="userEmail" name="email" placeholder="Your Email (agent@hq.com)" required>
                     <textarea name="message" placeholder="Encoded Message..." rows="3" required></textarea>
                     <input type="hidden" name="_next" value="https://adiityaes.github.io/">
-                    <button type="submit" style="background: var(--secondary); padding: 12px; width: 100%; border:none; font-weight:700; cursor:pointer; border-radius:8px;">Send Packet</button>
+                    <button type="submit" id="submitBtn">Send Packet</button>
+                    <p id="errorMsg" style="color: #ff4444; font-size: 0.8rem; margin-top: 10px; display: none;">
+                        [ACCESS DENIED]: Max 2 transmissions allowed per email.
+                    </p>
                 </form>
+
             </div>
             <div style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <a href="https://t.me/adiityaes" target="_blank" style="background:#0088cc; color:white; padding:30px; border-radius:15px; text-decoration:none; font-weight:700; font-size:1.2rem; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);">
@@ -207,8 +217,8 @@
         <div class="social-links">
             <a href="https://linkedin.com/in/aditya-kumar-pandey-ap"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
             <a href="https://x.com/adiityapandeyy"><i class="fab fa-x-twitter fa-lg"></i> Twitter</a>
-            <a href="https://github.com/adiityapandeyup"><i class="fab fa-github fa-lg"></i> GitHub</a>
             <a href="https://instagram.com/adiityaes"><i class="fab fa-instagram fa-lg"></i> Instagram</a>
+            <a href="https://github.com/adiityapandeyup"><i class="fab fa-github fa-lg"></i> GitHub</a>
         </div>
         <p style="color: #475569; font-size: 0.8rem; margin-top: 2rem;">&copy; 2026 Aditya Kumar Pandey | System Status: Protected 🔒</p>
     </footer>
@@ -216,6 +226,7 @@
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+    // 1. Typing Effect
     const texts = ["a Cybersecurity Student", "an OSINT Researcher", "a Python Developer", "a Forensics Expert"];
     let count = 0, index = 0, currentText = "", letter = "";
     (function type() {
@@ -227,11 +238,13 @@
         else { setTimeout(type, 100); }
     }());
 
+    // 2. Particles Background
     particlesJS("particles-js", {
         particles: { number: { value: 80 }, color: { value: "#38bdf8" }, shape: { type: "circle" }, opacity: { value: 0.5 }, size: { value: 3 }, line_linked: { enable: true, distance: 150, color: "#38bdf8", opacity: 0.4, width: 1 }, move: { enable: true, speed: 2 } },
         interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
     });
 
+    // 3. Visitor IP Tracker
     fetch('https://api.ipify.org?format=json')
         .then(res => res.json())
         .then(data => {
@@ -240,6 +253,38 @@
         }).catch(() => {
             document.getElementById("visitor-info").innerHTML = "[DETECTION]: Stealth Mode Detected | Encryption Active";
         });
+
+    // --- Anti-Spam Logic for Aditya ---
+    const contactForm = document.getElementById('contactForm');
+    const emailInput = document.getElementById('userEmail');
+    const submitBtn = document.getElementById('submitBtn');
+    const errorMsg = document.getElementById('errorMsg');
+
+    contactForm.addEventListener('submit', function(e) {
+        const email = emailInput.value.toLowerCase();
+        let submissionData = JSON.parse(localStorage.getItem('formSubmissions')) || {};
+        
+        if (submissionData[email] >= 2) {
+            e.preventDefault();
+            errorMsg.style.display = 'block';
+            submitBtn.disabled = true;
+            return false;
+        }
+
+        submissionData[email] = (submissionData[email] || 0) + 1;
+        localStorage.setItem('formSubmissions', JSON.stringify(submissionData));
+    });
+
+    emailInput.addEventListener('input', function() {
+        let submissionData = JSON.parse(localStorage.getItem('formSubmissions')) || {};
+        if (submissionData[emailInput.value.toLowerCase()] >= 2) {
+            errorMsg.style.display = 'block';
+            submitBtn.disabled = true;
+        } else {
+            errorMsg.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    });
 </script>
 
 </body>
