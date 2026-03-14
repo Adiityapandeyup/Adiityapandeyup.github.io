@@ -5,81 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Kumar Pandey | Cyber Expert Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { 
             --primary: #0f172a; --secondary: #38bdf8; --accent: #fbbf24; 
-            --bg: #020617; --text: #f8fafc; --card: rgba(255, 255, 255, 0.05); 
+            --bg: #020617; --text: #f8fafc; --card: rgba(255, 255, 255, 0.03); 
+            --neo-glow: 0 0 10px rgba(56, 189, 248, 0.3), 0 0 20px rgba(56, 189, 248, 0.2);
+            --transition: 0.3s ease;
         }
         .light-mode { 
             --bg: #f1f5f9; --text: #0f172a; --card: #ffffff; 
-            --primary: #38bdf8; 
+            --primary: #38bdf8; --neo-glow: 0 0 10px rgba(56, 189, 248, 0.1);
         }
         
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; transition: 0.3s; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; transition: var(--transition); overflow-x: hidden; scroll-behavior: smooth; }
         
         /* Hacker Header & Particles */
         header { 
-            height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            position: relative; background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95));
-            border-bottom: 2px solid var(--secondary);
+            height: 75vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: relative; background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover; background-position: center; border-bottom: 2px solid var(--secondary);
         }
         #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; }
         .header-content { z-index: 2; text-align: center; }
 
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--secondary); margin-bottom: 1rem; object-fit: cover; box-shadow: 0 0 20px var(--secondary); }
+        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--secondary); margin-bottom: 1rem; object-fit: cover; box-shadow: 0 0 30px var(--secondary); }
         
         /* Typing Effect */
         .typing-text::after { content: "|"; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
         .container { width: 90%; max-width: 950px; margin: auto; padding: 2rem 0; }
-        h2 { color: var(--secondary); border-bottom: 2px solid var(--secondary); display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { color: var(--secondary); border-bottom: 2px solid var(--secondary); display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; font-size: 1.8rem; }
 
-        /* IP Tracker Style */
-        .ip-tracker { background: #000; color: #00ff00; padding: 12px; border-radius: 8px; font-family: 'Courier New', monospace; border: 1px solid #00ff00; margin-top: 1.5rem; font-size: 0.8rem; display: inline-block; }
+        /* ADVANCED OSINT IP Tracker (Matrix typing) */
+        .ip-tracker { background: rgba(0,0,0,0.8); color: #00ff00; padding: 12px 20px; border-radius: 8px; font-family: 'Courier New', monospace; border: 1px solid #00ff00; margin-top: 1.5rem; font-size: 0.85rem; display: inline-block; white-space: pre-wrap; transition: 0.5s; text-shadow: 0 0 5px #00ff00; }
+        .ip-tracker.tracing { animation: matrix_typing 2s steps(20); }
+        @keyframes matrix_typing { from { width: 0; } to { width: 100%; } }
 
         /* Mode Toggle */
-        .mode-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; background: var(--secondary); color: #000; border: none; padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px var(--secondary); }
+        .mode-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; background: var(--secondary); color: #000; border: none; padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px var(--secondary); transition: var(--transition); }
+        .mode-toggle:hover { transform: scale(1.1); }
 
-        /* Projects */
-        .project-card { background: var(--card); padding: 1.5rem; border-radius: 12px; border-left: 5px solid var(--accent); margin-bottom: 1rem; transition: 0.3s; }
-        .project-card:hover { transform: translateX(10px); }
+        /* GLASSMORPHISM CARDS with Neo Blue Hover Glow */
+        .project-card, .cert-item { 
+            background: var(--card); backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 1.5rem; border-radius: 12px; border-left: 5px solid var(--accent); 
+            margin-bottom: 1.2rem; transition: var(--transition); cursor: pointer;
+            box-shadow: var(--neo-glow);
+        }
+        .project-card:hover, .cert-item:hover { transform: translateX(10px); background: rgba(56, 189, 248, 0.05); border-left-color: var(--secondary); border-color: rgba(56, 189, 248, 0.3); }
 
-        /* Skill Bars */
-        .skill-container { margin-bottom: 20px; }
-        .skill-name { font-weight: bold; margin-bottom: 5px; display: block; }
-        .skill-bar { background: #1e293b; height: 10px; border-radius: 5px; }
-        .skill-per { background: var(--secondary); height: 100%; border-radius: 5px; position: relative; }
+        /* Project Card with Hacker Terminal Hover */
+        .project-card { position: relative; overflow: hidden; }
+        .project-details { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: #000; color: #00ff00; font-family: 'Courier New', monospace; font-size: 0.8rem;
+            padding: 1rem; box-sizing: border-box; display: none; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .project-card:hover .project-details { display: block; opacity: 1; }
 
-        /* Interactive Certificates */
-        .cert-item { background: var(--card); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; margin-bottom: 1rem; cursor: pointer; overflow: hidden; }
-        .cert-header { display: flex; align-items: center; padding: 1.2rem; position: relative; }
+        /* INTERACTIVE CERTIFICATIONS (Distinct style) */
+        .cert-item { border-left-color: var(--secondary); }
+        .cert-header { display: flex; align-items: center; padding-right: 1rem; position: relative; }
         .company-logo { width: 45px; height: 45px; background: #fff; border-radius: 8px; margin-right: 15px; padding: 5px; flex-shrink: 0; }
         .company-logo img { width: 100%; height: 100%; object-fit: contain; }
-        .cert-details { max-height: 0; overflow: hidden; transition: 0.4s; background: rgba(0,0,0,0.2); }
-        .cert-item.active .cert-details { max-height: 200px; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
-        .skill-pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--secondary); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 3px; border: 1px solid var(--secondary); }
-
+        .cert-info h3 { margin: 0; font-size: 1.1rem; color: var(--text); font-weight: 700; }
+        .cert-date { position: absolute; top: 15px; right: 20px; font-size: 0.75rem; color: var(--secondary); font-weight: 600; }
+        
+        .arrow { transition: transform 0.3s; margin-left: auto; color: var(--secondary); }
+        .cert-item.active .arrow { transform: rotate(180deg); }
+        
         /* Contact Form */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: #1e293b; color: white; box-sizing: border-box; }
-        .social-links a { text-decoration: none; color: var(--text); padding: 12px 18px; border-radius: 8px; background: var(--card); margin: 5px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
-        .social-links a:hover { background: var(--secondary); color: #000; transform: translateY(-3px); }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: #1e293b; color: white; box-sizing: border-box; font-family: inherit; }
+        .social-links a { text-decoration: none; color: var(--text); padding: 12px 18px; border-radius: 8px; background: var(--card); margin: 5px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); font-weight: 600; }
+        .social-links a:hover { background: var(--secondary); color: #000; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); }
     </style>
 </head>
 <body>
 
-<button class="mode-toggle" onclick="document.body.classList.toggle('light-mode')"><i class="fas fa-adjust"></i></button>
+<button class="mode-toggle" onclick="document.body.classList.toggle('light-mode')"><i class="fas fa-adjust fa-lg"></i></button>
 
 <header>
     <div id="particles-js"></div>
     <div class="header-content">
         <img src="profile.jpg" alt="Aditya" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Aditya+Pandey&background=0ea5e9&color=fff&size=150'">
-        <h1 style="font-size: 2.8rem; margin-bottom: 5px;">Aditya Kumar Pandey</h1>
-        <h3 style="color: var(--secondary); font-weight: 400;">I am <span class="typing-text" id="typewriter"></span></h3>
+        <h1 style="font-size: 2.8rem; margin-bottom: 5px; font-weight: 800;">Aditya Kumar Pandey</h1>
+        <h3 style="color: var(--secondary); font-weight: 600; font-size: 1.1rem;">I am <span class="typing-text" id="typewriter"></span></h3>
         
-        <div class="ip-tracker" id="visitor-info">
-            [SYS_LOG]: Initializing Security Protocols...
+        <div class="ip-tracker tracing" id="visitor-info">
+            [SYS_LOG]: Establishing OSINT Data Link...
         </div>
     </div>
 </header>
@@ -87,44 +105,47 @@
 <div class="container">
     
     <section>
-        <h2>About Me</h2>
-        <div style="background: var(--card); padding: 2rem; border-radius: 15px;">
-            <p style="margin:0; font-size: 1.1rem; color: #cbd5e1;">BCA student at BBDU specializing in Cybersecurity & Forensics. I build Python-based OSINT tools and automation scripts to secure digital identities and streamline forensic data extraction.</p>
+        <h2>About My Cyber Mission</h2>
+        <div style="background: var(--card); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+            <p style="margin:0; font-size: 1.1rem; color: #cbd5e1; line-height: 1.8;">BCA student at BBDU specialized in Cybersecurity & Forensics. Focused on building sophisticated Python-based OSINT tools and automation scripts to secure digital identities and streamline forensic data extraction.</p>
         </div>
     </section>
 
     <section>
-        <h2>Technical Arsenal</h2>
-        <div class="skill-container"><span class="skill-name">Python Automation</span> <div class="skill-bar"><div class="skill-per" style="width: 90%;"></div></div></div>
-        <div class="skill-container"><span class="skill-name">OSINT & Data Mining</span> <div class="skill-bar"><div class="skill-per" style="width: 85%;"></div></div></div>
-        <div class="skill-container"><span class="skill-name">Network Security</span> <div class="skill-bar"><div class="skill-per" style="width: 80%;"></div></div></div>
-        <div class="skill-container"><span class="skill-name">Linux/Kali Linux</span> <div class="skill-bar"><div class="skill-per" style="width: 75%;"></div></div></div>
+        <h2>Technical Arsenal (OSINT certified)</h2>
+        <div class="skill-container"><span class="skill-name">Python Automation & Data Mining</span> <div class="skill-bar"><div class="skill-per" style="width: 90%;"></div></div></div>
+        <div class="skill-container"><span class="skill-name">OSINT & Tracking</span> <div class="skill-bar"><div class="skill-per" style="width: 85%;"></div></div></div>
+        <div class="skill-container"><span class="skill-name">Network Security & Forensics</span> <div class="skill-bar"><div class="skill-per" style="width: 80%;"></div></div></div>
     </section>
 
     <section>
-        <h2>Cyber Projects</h2>
+        <h2>Hacker Projects</h2>
         <div class="project-card">
             <h3><i class="fa-solid fa-terminal"></i> num-info-tool <small style="float:right; color: var(--accent);">2 Mar 2026</small></h3>
-            <p>Advanced OSINT tool for automated phone number intelligence and digital footprint analysis.</p>
+            <p>OSINT tool for phone number intelligence.</p>
+            <div class="project-details">
+                [LOG]: [adiityaes@linux ~]$ ./num-info --target +91xxxxxx <br> 
+                [SUCCESS]: Carrier DETECTED | Location TRACED | Digital Footprint FOUND.
+            </div>
         </div>
         <div class="project-card">
             <h3><i class="fa-solid fa-id-card"></i> aadhar-data-extractor <small style="float:right; color: var(--accent);">6 Mar 2026</small></h3>
-            <p>High-accuracy OCR automation script for secure extraction and verification of Aadhar digital data.</p>
+            <p>OCR automation for Aadhar verification.</p>
+            <div class="project-details">
+                [LOG]: [adiityaes@linux ~]$ python aadhar_ocr.py <br> 
+                [SUCCESS]: Data Extracted | RegEx Pattern Match OK | Secured Local Handling.
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>Professional Certifications</h2>
+        <h2>Professional Certifications (MAR 2026)</h2>
         <div class="cert-list">
             <div class="cert-item" onclick="this.classList.toggle('active')">
                 <div class="cert-header">
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg"></div>
                     <div><h3>Blockchain 101</h3><p>Infosys Springboard</p></div>
-                    <i class="fas fa-chevron-down" style="margin-left: auto; color: var(--secondary);"></i>
-                </div>
-                <div class="cert-details">
-                    <p>Studied decentralized ledgers and cryptographic security. <br>
-                    <span class="skill-pill">Web3</span> <span class="skill-pill">Cryptography</span></p>
+                    <span class="arrow">▼</span>
                 </div>
             </div>
 
@@ -132,11 +153,7 @@
                 <div class="cert-header">
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"></div>
                     <div><h3>Cybersecurity with Gen AI</h3><p>IBM Training</p></div>
-                    <i class="fas fa-chevron-down" style="margin-left: auto; color: var(--secondary);"></i>
-                </div>
-                <div class="cert-details">
-                    <p>Implementing AI for automated threat detection and defense. <br>
-                    <span class="skill-pill">AI Security</span> <span class="skill-pill">Threat Hunting</span></p>
+                    <span class="arrow">▼</span>
                 </div>
             </div>
 
@@ -144,11 +161,7 @@
                 <div class="cert-header">
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
                     <div><h3>Endpoint Security</h3><p>Cisco Academy</p></div>
-                    <i class="fas fa-chevron-down" style="margin-left: auto; color: var(--secondary);"></i>
-                </div>
-                <div class="cert-details">
-                    <p>Malware analysis and host protection protocols. <br>
-                    <span class="skill-pill">Malware Defense</span> <span class="skill-pill">Antivirus</span></p>
+                    <span class="arrow">▼</span>
                 </div>
             </div>
 
@@ -156,11 +169,7 @@
                 <div class="cert-header">
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
                     <div><h3>Networking Basics</h3><p>Cisco Academy</p></div>
-                    <i class="fas fa-chevron-down" style="margin-left: auto; color: var(--secondary);"></i>
-                </div>
-                <div class="cert-details">
-                    <p>Foundation of OSI model, TCP/IP, and secure routing. <br>
-                    <span class="skill-pill">Networking</span> <span class="skill-pill">TCP/IP</span></p>
+                    <span class="arrow">▼</span>
                 </div>
             </div>
 
@@ -168,44 +177,40 @@
                 <div class="cert-header">
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
                     <div><h3>Introduction to Cybersecurity</h3><p>Cisco Academy</p></div>
-                    <i class="fas fa-chevron-down" style="margin-left: auto; color: var(--secondary);"></i>
-                </div>
-                <div class="cert-details">
-                    <p>Ethical hacking principles and data privacy risk management. <br>
-                    <span class="skill-pill">Ethical Hacking</span> <span class="skill-pill">Data Privacy</span></p>
+                    <span class="arrow">▼</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Secure Feedback & Chat</h2>
+        <h2>Secure Feedback & Direct Chat</h2>
         <div class="contact-grid">
-            <div class="project-card">
-                <h4 style="margin-top:0;"><i class="fa-solid fa-envelope"></i> Send Packet (Feedback)</h4>
+            <div class="project-card" style="margin-bottom:0; cursor:default;">
+                <h4 style="margin-top:0;"><i class="fa-solid fa-paper-plane"></i> Transmit Feedback (Encoded)</h4>
                 <form action="https://formspree.io/f/mbdzkkpp" method="POST">
-                    <input type="text" name="name" placeholder="Infiltrator Name" required>
-                    <textarea name="message" placeholder="Encrypted Message..." rows="3" required></textarea>
+                    <input type="text" name="name" placeholder="Agent Name" required>
+                    <textarea name="message" placeholder="Encoded Message..." rows="3" required></textarea>
                     <input type="hidden" name="_next" value="https://adiityaes.github.io/">
-                    <button type="submit" style="background: var(--secondary); padding: 10px; width: 100%; border:none; font-weight:bold; cursor:pointer; border-radius:5px;">Transmit Message</button>
+                    <button type="submit" style="background: var(--secondary); padding: 12px; width: 100%; border:none; font-weight:700; cursor:pointer; border-radius:8px; transition: var(--transition);">Send Packet</button>
                 </form>
             </div>
-            <div style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                <a href="https://t.me/adiityaes" target="_blank" style="background:#0088cc; color:white; padding:30px; border-radius:15px; text-decoration:none; font-weight:bold; font-size:1.2rem;">
+            <div style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <a href="https://t.me/adiityaes" target="_blank" style="background:#0088cc; color:white; padding:30px; border-radius:15px; text-decoration:none; font-weight:700; font-size:1.2rem; display:flex; align-items:center; gap:10px; transition: var(--transition); box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);">
                     <i class="fab fa-telegram fa-2x"></i><br>Live Secure Chat
                 </a>
+                <p style="font-size:0.8rem; color:#475569; margin-top:10px;">ID: adiityaes</p>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; margin-top: 4rem;">
+    <footer style="text-align: center; margin-top: 4rem; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="social-links">
-            <a href="https://linkedin.com/in/aditya-kumar-pandey-ap"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://x.com/adiityapandeyy"><i class="fab fa-x-twitter"></i> X</a>
-            <a href="https://instagram.com/adiityaes"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://github.com/Adiityapandeyup"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/aditya-kumar-pandey-ap"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
+            <a href="https://x.com/adiityapandeyy"><i class="fab fa-x-twitter fa-lg"></i> Twitter</a>
+            <a href="https://github.com/adiityapandeyup"><i class="fab fa-github fa-lg"></i> GitHub</a>
         </div>
-        <p style="color: #475569; font-size: 0.8rem; margin-top: 2rem;">&copy; 2026 Aditya Kumar Pandey | System Protected 🔒</p>
+        <p style="color: #475569; font-size: 0.8rem; margin-top: 2rem;">&copy; 2026 Aditya Kumar Pandey | BABU BANARASI DAS UNIVERSITY | Status: Protected 🔒</p>
     </footer>
 </div>
 
@@ -234,7 +239,9 @@
         .then(res => res.json())
         .then(data => {
             const os = navigator.platform;
-            document.getElementById("visitor-info").innerHTML = `[DETECTION]: IP_${data.ip} | OS_${os} | STATUS_TRACED_BY_ADITYA`;
+            const tracerBox = document.getElementById("visitor-info");
+            tracerBox.innerHTML = `[DETECTION]: Visitor IP DETECTED\n[SYS_OS]: ${os}\n[STATUS]: TRACED_BY_ADITYA`;
+            tracerBox.classList.remove('tracing');
         }).catch(() => {
             document.getElementById("visitor-info").innerHTML = "[DETECTION]: Stealth Mode Detected | Encryption Active";
         });
