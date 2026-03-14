@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Kumar Pandey | Cyber Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --primary: #0f172a; --secondary: #38bdf8; --accent: #fbbf24; --bg: #020617; --card-bg: rgba(255, 255, 255, 0.05); }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #f8fafc; margin: 0; line-height: 1.6; scroll-behavior: smooth; }
@@ -19,11 +20,8 @@
         .container { width: 90%; max-width: 950px; margin: auto; padding: 2rem 0; }
         h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 3.5rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
 
-        /* Projects & Feedback Style */
         .project-card, .feedback-container { background: #1e293b; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border-left: 5px solid var(--accent); transition: 0.3s; }
-        .project-card:hover { transform: translateX(5px); }
-
-        /* Certification Style */
+        
         .cert-item { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; margin-bottom: 1rem; overflow: hidden; transition: 0.3s; cursor: pointer; }
         .cert-item:hover { border-color: var(--secondary); background: rgba(56, 189, 248, 0.05); }
         .cert-header { display: flex; align-items: center; padding: 1.2rem; position: relative; }
@@ -34,14 +32,12 @@
         .cert-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: rgba(0, 0, 0, 0.2); }
         .cert-item.active .cert-details { max-height: 250px; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
 
-        /* Form Styling */
         input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: #0f172a; color: white; font-family: inherit; box-sizing: border-box; }
         button { background: var(--secondary); color: #000; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
-        button:hover { background: #7dd3fc; transform: scale(1.02); }
 
         .skill-pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--secondary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin: 5px 3px; border: 1px solid rgba(56, 189, 248, 0.3); }
         .social-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 1rem; }
-        .social-links a { text-decoration: none; color: white; padding: 10px 20px; border-radius: 8px; background: #1e293b; font-weight: bold; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .social-links a { text-decoration: none; color: white; padding: 10px 20px; border-radius: 8px; background: #1e293b; font-weight: bold; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 8px; }
         .social-links a:hover { background: var(--secondary); color: #000; }
         .arrow { transition: transform 0.3s; margin-left: auto; color: var(--secondary); }
         .cert-item.active .arrow { transform: rotate(180deg); }
@@ -51,8 +47,8 @@
 
 <header>
     <img src="profile.jpg" alt="Aditya Kumar Pandey" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Aditya+Pandey&background=0ea5e9&color=fff&size=150'">
-    <h1 style="margin:0; font-size: 2.5rem;">Aditya Kumar Pandey</h1>
-    <p style="color: var(--secondary); font-weight: 600; font-size: 1.1rem;">BCA Cybersecurity @ BBDU | OSINT & Automation Expert</p>
+    <h1 style="margin:0;">Aditya Kumar Pandey</h1>
+    <p style="color: var(--secondary); font-weight: 600;">BCA Cybersecurity @ BBDU | OSINT & Automation Expert</p>
 </header>
 
 <div class="container">
@@ -60,19 +56,19 @@
     <section>
         <h2>About Me</h2>
         <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
-            <p style="margin:0; font-size: 1.05rem; color: #cbd5e1;">I am a Cybersecurity and Digital Forensics student specialized in building Python-based OSINT tools and automated data extraction systems. My goal is to streamline digital investigations through smart automation.</p>
+            <p style="margin:0; font-size: 1.05rem; color: #cbd5e1;">I am a Cybersecurity and Digital Forensics student at BBDU, passionate about building Python-based OSINT tools and automated data extraction systems. I focus on streamlining digital investigations through smart automation and security protocols.</p>
         </div>
     </section>
 
     <section>
         <h2>Technical Projects</h2>
         <div class="project-card">
-            <h3 style="margin:0;">num-info-tool <span style="float:right; color: var(--accent); font-size: 0.85rem;">2 Mar 2026</span></h3>
-            <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 8px;">Advanced OSINT tool for phone number intelligence and digital footprint analysis.</p>
+            <h3>num-info-tool <span style="float:right; color: var(--accent); font-size: 0.85rem;">2 Mar 2026</span></h3>
+            <p style="color: #94a3b8;">Advanced OSINT tool for automated phone number intelligence and carrier tracking.</p>
         </div>
         <div class="project-card">
-            <h3 style="margin:0;">aadhar-data-extractor <span style="float:right; color: var(--accent); font-size: 0.85rem;">6 Mar 2026</span></h3>
-            <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 8px;">OCR-driven automation for secure digital Aadhar data parsing and verification.</p>
+            <h3>aadhar-data-extractor <span style="float:right; color: var(--accent); font-size: 0.85rem;">6 Mar 2026</span></h3>
+            <p style="color: #94a3b8;">OCR-based automation for secure digital Aadhar data parsing and verification.</p>
         </div>
     </section>
 
@@ -82,48 +78,107 @@
             <div class="cert-item" onclick="this.classList.toggle('active')">
                 <div class="cert-header">
                     <span class="cert-date">MAR 2026</span>
+                    <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg"></div>
+                    <div class="cert-info"><h3>Blockchain 101</h3><p>Infosys Springboard</p></div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="cert-details">
+                    <p>In-depth study of decentralized ledgers, cryptographic hashing, and smart contract security.</p>
+                    <span class="skill-pill">Cryptography</span> <span class="skill-pill">Web3 Security</span>
+                </div>
+            </div>
+
+            <div class="cert-item" onclick="this.classList.toggle('active')">
+                <div class="cert-header">
+                    <span class="cert-date">MAR 2026</span>
+                    <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"></div>
+                    <div class="cert-info"><h3>Cybersecurity with Gen AI</h3><p>IBM Training</p></div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="cert-details">
+                    <p>Understanding how Generative AI can be used for automated threat hunting and defensive AI strategies.</p>
+                    <span class="skill-pill">Defensive AI</span> <span class="skill-pill">Threat Detection</span>
+                </div>
+            </div>
+
+            <div class="cert-item" onclick="this.classList.toggle('active')">
+                <div class="cert-header">
+                    <span class="cert-date">MAR 2026</span>
                     <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
                     <div class="cert-info"><h3>Endpoint Security</h3><p>Cisco Networking Academy</p></div>
                     <span class="arrow">▼</span>
                 </div>
-                <div class="cert-details"><p>Protecting endpoints from malware and unauthorized access.</p><span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Protection</span></div>
+                <div class="cert-details">
+                    <p>Mastered endpoint protection strategies, including firewall management and malware detection.</p>
+                    <span class="skill-pill">Malware Analysis</span> <span class="skill-pill">Host Protection</span>
+                </div>
             </div>
-            
+
+            <div class="cert-item" onclick="this.classList.toggle('active')">
+                <div class="cert-header">
+                    <span class="cert-date">MAR 2026</span>
+                    <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
+                    <div class="cert-info"><h3>Networking Basics</h3><p>Cisco Networking Academy</p></div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="cert-details">
+                    <p>Foundation of network infrastructure, OSI models, and TCP/IP configurations.</p>
+                    <span class="skill-pill">OSI Model</span> <span class="skill-pill">TCP/IP</span>
+                </div>
             </div>
+
+            <div class="cert-item" onclick="this.classList.toggle('active')">
+                <div class="cert-header">
+                    <span class="cert-date">MAR 2026</span>
+                    <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"></div>
+                    <div class="cert-info"><h3>Intro to Cybersecurity</h3><p>Cisco Networking Academy</p></div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="cert-details">
+                    <p>Broad overview of the cybersecurity landscape, covering ethical hacking and data privacy.</p>
+                    <span class="skill-pill">Ethical Hacking</span> <span class="skill-pill">Data Privacy</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Feedback & Live Chat</h2>
         <div class="feedback-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; border-left: 5px solid var(--secondary);">
             <div>
-                <h4 style="margin-top:0; color:var(--secondary)">Send a Feedback</h4>
+                <h4 style="margin-top:0; color:var(--secondary)"><i class="fa-solid fa-paper-plane"></i> Send Feedback</h4>
                 <form action="https://formspree.io/f/YOUR_ID" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <textarea name="message" placeholder="Your Message" rows="3" required></textarea>
+                    <input type="hidden" name="_next" value="https://your-username.github.io/">
                     <button type="submit">Send Message</button>
                 </form>
             </div>
             <div style="text-align: center; padding: 10px;">
-                <h4 style="margin-top:0; color:var(--accent)">Direct Chat</h4>
-                <p style="font-size:0.85rem; color:#94a3b8">Available on Telegram for instant response.</p>
-                <a href="https://t.me/YOUR_USERNAME" target="_blank" style="display:inline-block; background:#0088cc; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">Message on Telegram</a>
+                <h4 style="margin-top:0; color:var(--accent)"><i class="fa-brands fa-telegram"></i> Direct Chat</h4>
+                <p style="font-size:0.85rem; color:#94a3b8">Message me directly for a quick response.</p>
+                <a href="https://t.me/adiityaes" target="_blank" style="display:inline-block; background:#0088cc; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;"><i class="fa-brands fa-telegram"></i> Chat on Telegram</a>
             </div>
         </div>
     </section>
 
     <section style="text-align: center; margin-top: 3rem;">
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/aditya-kumar-pandey-ap">LinkedIn</a>
-            <a href="https://x.com/adiityapandeyy">X (Twitter)</a>
-            <a href="https://instagram.com/adiityaes">Instagram</a>
-            <a href="https://github.com/Adiityapandeyup">GitHub</a>
+            <a href="https://www.linkedin.com/in/aditya-kumar-pandey-ap"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://x.com/adiityapandeyy"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+            <a href="https://instagram.com/adiityaes"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://github.com/Adiityapandeyup"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
     </section>
 </div>
 
 <footer style="text-align: center; padding: 3rem; color: #475569; font-size: 0.8rem;">
-    <p>&copy; 2026 Aditya Kumar Pandey | Secured with 💻</p>
+    <p>&copy; 2026 Aditya Kumar Pandey | Cybersecurity Enthusiast</p>
 </footer>
+
+<script>
+    // No JS needed for now, but placeholder for future interactivity
+</script>
 
 </body>
 </html>
