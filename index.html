@@ -6,6 +6,7 @@
     <title>Aditya Kumar Pandey | Cyber Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         :root { 
             --primary: #0f172a; --secondary: #38bdf8; --accent: #fbbf24; 
@@ -31,7 +32,6 @@
         .nav-links li a { text-decoration: none; color: var(--text); font-size: 1.5rem; transition: 0.3s; position: relative; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 12px; }
         .nav-links li a:hover { color: var(--secondary); background: rgba(56, 189, 248, 0.1); }
         
-        /* Tooltip */
         .nav-links li a::after {
             content: attr(data-title); position: absolute; left: 60px; top: 50%; transform: translateY(-50%);
             background: var(--secondary); color: #000; padding: 5px 10px; border-radius: 5px;
@@ -45,7 +45,6 @@
             border-radius: 12px; cursor: pointer; transition: 0.3s;
         }
 
-        /* MAIN CONTENT */
         main { margin-left: var(--sidebar-w); }
 
         header { 
@@ -72,6 +71,15 @@
             padding: 1.5rem; border-radius: 12px; border-left: 5px solid var(--accent); margin-bottom: 1.2rem; transition: var(--transition); cursor: pointer;
         }
         .project-card:hover, .cert-item:hover { transform: translateX(10px); border-left-color: var(--secondary); background: rgba(56, 189, 248, 0.05); }
+
+        /* PDF Tool Styles */
+        #pdfInputLabel {
+            background: rgba(56, 189, 248, 0.05); border: 2px dashed var(--secondary);
+            padding: 40px 20px; display: block; border-radius: 12px; cursor: pointer;
+            margin-bottom: 15px; transition: 0.3s;
+        }
+        #pdfInputLabel:hover { background: rgba(56, 189, 248, 0.1); }
+        .privacy-note { font-size: 0.75rem; color: #64748b; margin-top: 10px; font-style: italic; }
 
         .cert-item { border-left-color: var(--secondary); padding: 0; overflow: hidden; }
         .cert-header { display: flex; align-items: center; padding: 1.2rem; position: relative; }
@@ -112,6 +120,7 @@
         <li><a href="#home" data-title="Home"><i class="fas fa-home"></i></a></li>
         <li><a href="#about" data-title="About"><i class="fas fa-user-shield"></i></a></li>
         <li><a href="#projects" data-title="Projects"><i class="fas fa-code-branch"></i></a></li>
+        <li><a href="#pdf-tool" data-title="PDF Converter"><i class="fas fa-file-pdf"></i></a></li>
         <li><a href="#certs" data-title="Certificates"><i class="fas fa-award"></i></a></li>
         <li><a href="#contact" data-title="Contact"><i class="fas fa-envelope"></i></a></li>
     </ul>
@@ -137,7 +146,7 @@
     <div class="container">
         
         <section id="about">
-            <h2>About Me</h2>
+            <h2>About My Mission</h2>
             <div style="background: var(--card); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); line-height: 1.8;">
                 <p style="margin:0; font-size: 1.1rem; color: #cbd5e1;">BCA Cybersecurity student at BBDU. Specialized in Python automation, OSINT research, and Digital Forensics. I build tools to secure the digital landscape and automate investigative workflows. Currently focusing on defensive security architectures.</p>
             </div>
@@ -155,10 +164,30 @@
             </div>
         </section>
 
+        <section id="pdf-tool">
+            <h2><i class="fas fa-shield-alt"></i> Cyber PDF Tool</h2>
+            <div class="project-card" style="cursor: default; text-align: center; border-left-color: var(--secondary);">
+                <p style="color: #94a3b8; margin-bottom: 1.5rem;">Convert multiple images into a single secure PDF document.</p>
+                
+                <input type="file" id="pdfInput" accept="image/*" multiple style="display: none;">
+                <label for="pdfInput" id="pdfInputLabel">
+                    <i class="fas fa-file-upload fa-3x" style="color: var(--secondary); margin-bottom: 15px;"></i>
+                    <p id="fileCount" style="margin:0; font-weight: 600;">Select Images to Encapsulate</p>
+                </label>
+                
+                <button id="generatePdfBtn" style="width: 100%; display: none; margin-top: 10px;">
+                    <i class="fas fa-file-export"></i> Generate & Download PDF
+                </button>
+                
+                <p class="privacy-note">
+                    <i class="fas fa-lock"></i> Client-Side Processing: Your images are processed locally in your browser and are never uploaded to any server.
+                </p>
+            </div>
+        </section>
+
         <section id="certs">
             <h2>Certifications</h2>
             <div class="cert-list">
-                
                 <div class="cert-item" onclick="this.classList.toggle('active')">
                     <div class="cert-header">
                         <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg"></div>
@@ -226,7 +255,7 @@
             <h2>Secure Connection</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
                 <div class="project-card" style="margin-bottom:0; cursor:default;">
-                    <form id="contactForm" action="https://formspree.io/f/mbdzkkpp" method="POST">
+                    <form id="contactForm" action="https://formspree.io/f/" method="POST">
                         <input type="text" name="name" placeholder="Full Name" required>
                         <input type="email" id="userEmail" name="email" placeholder="Email Address" required>
                         <textarea name="message" placeholder="Type your secure message..." rows="4" required></textarea>
@@ -241,8 +270,9 @@
                         <p style="font-weight: 700; color: var(--secondary); margin-bottom: 15px;">SOCIAL FOOTPRINTS</p>
                         <div class="social-footer">
                             <a href="https://linkedin.com/in/aditya-kumar-pandey-ap" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/adiityapndeyup" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/adiityapandeyup" target="_blank"><i class="fab fa-github"></i></a>
                             <a href="https://instagram.com/adiityaes" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://x.com/adiityapandeyy" target="_blank"><i class="fab fa-x-twitter"></i></a>
                         </div>
                     </div>
                 </div>
@@ -279,11 +309,56 @@
         document.getElementById("visitor-info").innerHTML = `[DETECTION]: Visitor IP ${data.ip} | Status: Traced`;
     });
 
-    // 4. Anti-Spam (2 Message Limit)
+    // 4. PDF Converter Logic
+    const pdfInput = document.getElementById('pdfInput');
+    const fileCountText = document.getElementById('fileCount');
+    const generateBtn = document.getElementById('generatePdfBtn');
+
+    pdfInput.addEventListener('change', () => {
+        const files = pdfInput.files;
+        if (files.length > 0) {
+            fileCountText.innerText = `[${files.length}] Images Staged for Conversion`;
+            generateBtn.style.display = 'block';
+        }
+    });
+
+    generateBtn.addEventListener('click', async () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        const files = pdfInput.files;
+
+        generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Encrypting & Exporting...';
+        generateBtn.disabled = true;
+
+        for (let i = 0; i < files.length; i++) {
+            const imgData = await readFileAsDataURL(files[i]);
+            if (i > 0) doc.addPage();
+            
+            // Auto-scale logic to fit A4
+            const imgProps = doc.getImageProperties(imgData);
+            const pdfWidth = doc.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            
+            doc.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight); 
+        }
+
+        doc.save(`Secure_Export_${Date.now()}.pdf`);
+        generateBtn.innerHTML = '<i class="fas fa-file-export"></i> Generate & Download PDF';
+        generateBtn.disabled = false;
+    });
+
+    function readFileAsDataURL(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result);
+            reader.onerror = (e) => reject(e);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // 5. Anti-Spam
     const contactForm = document.getElementById('contactForm');
     const emailInput = document.getElementById('userEmail');
-    const submitBtn = document.getElementById('submitBtn');
-
     contactForm.addEventListener('submit', function(e) {
         const email = emailInput.value.toLowerCase();
         let submissionData = JSON.parse(localStorage.getItem('formSubmissions')) || {};
@@ -299,3 +374,4 @@
 
 </body>
 </html>
+        
